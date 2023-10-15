@@ -77,6 +77,13 @@ hr{
     color: hsl(0, 100%, 67%);
     font-size: small;
 }
+.attribution {
+    font-size: 11px; 
+    text-align: center; 
+}
+.attribution a{
+    color: hsl(0, 1%, 44%); 
+}
 @media screen and (max-width:650px) {
     .user-input input{
         font-size: 25px;

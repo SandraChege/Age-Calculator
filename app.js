@@ -17,6 +17,7 @@ inputs[0].addEventListener('input', (e) => {
     if (valueday >= 1 && valueday <= 31) {
         day = parseInt(valueday);
       // console.log(day);
+      errorMessage.textContent = "";
     } else {
       errorMessage.textContent = "Enter a valid day";
     }

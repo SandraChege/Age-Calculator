@@ -77,11 +77,11 @@ hr{
     color: hsl(0, 100%, 67%);
     font-size: small;
 }
-.attribution {
+.projectinfo {
     font-size: 11px; 
     text-align: center; 
 }
-.attribution a{
+.projectinfo a{
     color: hsl(0, 1%, 44%); 
 }
 @media screen and (max-width:650px) {

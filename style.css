@@ -1,0 +1,98 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    background-color:  hsl(0, 0%, 94%);
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* width: 100vw; */
+}
+#calc-container{
+    width: 80%;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 2rem 2rem 10rem 2rem;
+    padding: 3rem;
+    position: relative;
+}
+.top-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-input{
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+}
+.user-input label{
+    text-transform: uppercase;
+}
+.user-input input{
+    width: 50%;
+    padding: 10px;
+    font-size: 32px;
+}
+hr{
+    margin-top: 3rem;
+    color: hsl(0, 1%, 44%);
+}
+.calc-button{
+    background-color: hsl(259, 100%, 65%);
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    padding: 20px;
+    right: 0;
+}
+.calc-button:hover{
+    background-color: black;
+}
+.results-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.result-block{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.result-block #years, .result-block #months, .result-block #days{
+    color: hsl(259, 100%, 65%);
+} 
+.result-block span{
+    font-size: 3rem;
+    font-style: italic;
+    font-weight: 800;
+}
+.error-message{
+    color: hsl(0, 100%, 67%);
+    font-size: small;
+}
+@media screen and (max-width:650px) {
+    .user-input input{
+        font-size: 25px;
+    }
+}
+@media screen and (max-width:500px) {
+    .user-input input{
+        font-size: 20px;
+    }
+    .calc-button{
+    right: 40%;
+    }
+}
+@media screen and (max-width:400px) {
+    .user-input input{
+        font-size: small;
+        /* width: 40%; */
+    }
+}

@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
 }
 body{
     display: flex;
@@ -13,7 +14,7 @@ body{
     /* width: 100vw; */
 }
 #calc-container{
-    width: 80%;
+    width: 80vw;
     background-color: hsl(0, 0%, 100%);
     border-radius: 2rem 2rem 10rem 2rem;
     padding: 3rem;
@@ -35,7 +36,9 @@ body{
 .user-input input{
     width: 50%;
     padding: 10px;
-    font-size: 32px;
+    /* font-size: 32px; */
+    font-size: 1.8rem;
+    border: 1px solid;
 }
 hr{
     margin-top: 3rem;
@@ -84,22 +87,84 @@ hr{
 .projectinfo a{
     color: hsl(0, 1%, 44%); 
 }
+@media screen and (max-width:850px) {
+    .user-input input{
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width:760px) {
+    .user-input input{
+        font-size: 0.9rem;
+    }
+}
 @media screen and (max-width:650px) {
     .user-input input{
-        font-size: 25px;
+        font-size: 0.7rem;
     }
 }
 @media screen and (max-width:500px) {
+    .top-body{
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center;
+        align-items: center; */
+        text-align: center;
+    }
+    .user-input{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     .user-input input{
         font-size: 20px;
     }
+    /* .user-input input[type=number]{
+        margin-left: 5px;
+        margin-right: 5px;
+    } */
     .calc-button{
-    right: 40%;
+        right: 40%;
+        margin-top: 10px;
+        font-size: 20px;
+        width: 20%;
+        margin-bottom: 10%;
+    }
+    .results-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25px;
+    }
+    /* .result-block{
+        margin-top: 10px;
+    } */
+    .result-block span{
+        font-size: 2rem;
     }
 }
-@media screen and (max-width:400px) {
+@media screen and (max-width:340px) {
+    .result-block span{
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width:300px) {
+   .user-input input{
+        font-size: 17px;
+    }
+    .calc-button{
+        width: 20px;
+        height: 20px;
+        margin-top: 30px;
+    }
+}
+@media screen and (max-width:280px) {
     .user-input input{
-        font-size: small;
-        /* width: 40%; */
+        font-size: 15px;
+    }
+   
+    .result-block span{
+        font-size: 1.2rem;
     }
 }

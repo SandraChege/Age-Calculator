@@ -89,6 +89,17 @@ function calculate() {
         "April, June, September, and November have 30 days.";
       return;
     }
+    // Check for leap year
+    const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+
+    if (month === 1) {
+      if ((day > 29 && isLeapYear) || (day > 28 && !isLeapYear)) {
+        errorDayMessage.textContent = isLeapYear
+          ? "February in a leap year has 29 days."
+          : "This is not a leap year February has 28 days.";
+        return;
+      }
+    }
   }
   if (day && month && year !== "") {
     let myDay = currentDay - day;

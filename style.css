@@ -76,9 +76,10 @@ hr{
     font-style: italic;
     font-weight: 800;
 }
-.error-message{
+.error-day-message, .error-month-message, .error-year-message{
     color: hsl(0, 100%, 67%);
-    font-size: small;
+    font-size: 16px;
+    font-weight: bold;
 }
 .projectinfo {
     font-size: 11px; 

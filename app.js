@@ -1,5 +1,7 @@
 let inputs = document.querySelectorAll("input");
-const errorMessage = document.querySelector(".error-message");
+const errorDayMessage = document.querySelector(".error-day-message");
+const errorMonthMessage = document.querySelector(".error-month-message");
+const errorYearMessage = document.querySelector(".error-year-message");
 const btn = document.querySelector(".calc-button");
 const yearResult = document.querySelector("#years");
 const monthResult = document.querySelector("#months");
@@ -17,9 +19,9 @@ inputs[0].addEventListener("input", (e) => {
   if (valueday >= 1 && valueday <= 31) {
     day = parseInt(valueday);
     // console.log(day);
-    errorMessage.textContent = "";
+    errorDayMessage.textContent = "";
   } else {
-    errorMessage.textContent = "Enter a valid day";
+    errorDayMessage.textContent = "Enter a valid day";
   }
 });
 
@@ -27,10 +29,10 @@ inputs[1].addEventListener("input", (e) => {
   let valuemonth = inputs[1].value; //get the value from input field
   if (valuemonth >= 1 && valuemonth <= 12) {
     month = parseInt(valuemonth) - 1;
-    errorMessage.textContent = "";
+    errorMonthMessage.textContent = "";
     //console.log(month);
   } else {
-    errorMessage.textContent = "Enter a valid month";
+    errorMonthMessage.textContent = "Enter a valid month";
   }
 });
 
@@ -38,39 +40,52 @@ inputs[2].addEventListener("input", (e) => {
   let valueyear = inputs[2].value; //get the value from input field
   if (parseInt(valueyear) >= 0o0 && parseInt(valueyear) <= currentYear) {
     year = parseInt(valueyear);
-    errorMessage.textContent = "";
+    errorYearMessage.textContent = "";
     //console.log(year);
   } else {
-    errorMessage.textContent = "Enter a valid year";
+    errorYearMessage.textContent = "Enter a valid year";
   }
 });
 
 btn.addEventListener("click", calculate);
 
 function calculate() {
+   if (
+     errorDayMessage.textContent ||
+     errorMonthMessage.textContent ||
+     errorYearMessage.textContent
+   ) {
+     // Don't proceed with calculation if any error messages are displayed.
+     return;
+   }
+
   if (day !== undefined && month !== undefined && year !== undefined) {
-    if (
-      year > currentYear ||
-      (year === currentYear && month > currentMonth) ||
-      (year === currentYear && month === currentMonth && day > currentDay)
-    ) {
-      errorMessage.textContent =
-        "Please enter a valid date in the past or today.";
+    // if (
+    //   year > currentYear ||
+    //   (year === currentYear && month > currentMonth) ||
+    //   (year === currentYear && month === currentMonth && day > currentDay)
+    // ) {
+    //   errorMessage.textContent =
+    //     "Please enter a valid date in the past or today.";
+    //   return;
+    // }
+    if (year > currentYear) {
+      errorYearMessage.textContent = "Please enter a valid year";
       return;
     }
-    // if (year > currentYear) {
-    //   errorMessage.textContent = "Please enter a valid year";
-    //    if (month > currentMonth) {
-    //      errorMessage.textContent = "Please enter a valid month";
-    //   }
-    //    if (day > currentDay) {
-    //      errorMessage.textContent = "Please enter a valid day";
-    //   }
+    if (year === currentYear && month > currentMonth) {
+      errorMonthMessage.textContent = "Please enter a valid month";
+      return;
+    }
+    if (year === currentYear && month === currentMonth && day > currentDay) {
+      errorDayMessage.textContent = "Please enter a valid day";
+      return;
+    }
     if (
       day === 31 &&
       (month === 3 || month === 5 || month === 8 || month === 10)
     ) {
-      errorMessage.textContent =
+      errorDayMessage.textContent =
         "April, June, September, and November have 30 days.";
       return;
     }
@@ -90,7 +105,8 @@ function calculate() {
     yearResult.textContent = myYear;
     monthResult.textContent = myMonth;
     daysResult.textContent = myDay;
-  } else {
-    errorMessage.textContent = "Please enter a valid date";
   }
+  // else {
+  //   errorMessage.textContent = "Please enter a valid date";
+  // }
 }

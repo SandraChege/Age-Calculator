@@ -50,25 +50,7 @@ inputs[2].addEventListener("input", (e) => {
 btn.addEventListener("click", calculate);
 
 function calculate() {
-   if (
-     errorDayMessage.textContent ||
-     errorMonthMessage.textContent ||
-     errorYearMessage.textContent
-   ) {
-     // Don't proceed with calculation if any error messages are displayed.
-     return;
-   }
-
   if (day !== undefined && month !== undefined && year !== undefined) {
-    // if (
-    //   year > currentYear ||
-    //   (year === currentYear && month > currentMonth) ||
-    //   (year === currentYear && month === currentMonth && day > currentDay)
-    // ) {
-    //   errorMessage.textContent =
-    //     "Please enter a valid date in the past or today.";
-    //   return;
-    // }
     if (year > currentYear) {
       errorYearMessage.textContent = "Please enter a valid year";
       return;
@@ -81,14 +63,27 @@ function calculate() {
       errorDayMessage.textContent = "Please enter a valid day";
       return;
     }
-    if (
-      day === 31 &&
-      (month === 3 || month === 5 || month === 8 || month === 10)
-    ) {
-      errorDayMessage.textContent =
-        "April, June, September, and November have 30 days.";
+    if (day === 31 && month === 3) {
+      console.log("called");
+      errorDayMessage.textContent = "April has 30 days.";
       return;
     }
+    if (day === 31 && month === 5) {
+      console.log("called");
+      errorDayMessage.textContent = "June has 30 days.";
+      return;
+    }
+    if (day === 31 && month === 8) {
+      console.log("called");
+      errorDayMessage.textContent = "September has 30 days.";
+      return;
+    }
+    if (day === 31 && month === 10) {
+      console.log("called");
+      errorDayMessage.textContent = "November has 30 days.";
+      return;
+    }
+
     // Check for leap year
     const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 
@@ -117,7 +112,4 @@ function calculate() {
     monthResult.textContent = myMonth;
     daysResult.textContent = myDay;
   }
-  // else {
-  //   errorMessage.textContent = "Please enter a valid date";
-  // }
 }
